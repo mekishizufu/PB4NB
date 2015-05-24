@@ -40,6 +40,7 @@ import org.javabuilders.annotations.DoInBackground;
 import org.javabuilders.event.BackgroundEvent;
 import org.javabuilders.swing.SwingJavaBuilder;
 import org.netbeans.api.editor.mimelookup.MimeLookup;
+import org.openide.text.NbDocument;
 
 /**
  *
@@ -77,9 +78,12 @@ public class PostDialog extends JFrame {
         expirationComboBoxModel.setSelectedItem("1M");
         expiration = new JComboBox(expirationComboBoxModel);
 
+        
+//        editor = NbDocument.CustomEditor();
+//        CloneableEditor test = new CloneableEditor();
+//        test.set
         editor = new JEditorPane();
-        editor.setEditorKit(
-                MimeLookup.getLookup(docInfo.getContentType()).lookup(EditorKit.class));
+        editor.setEditorKit(MimeLookup.getLookup(docInfo.getContentType()).lookup(EditorKit.class));
         editor.setText(docInfo.getText());
 
         preferences = new Preferences();
